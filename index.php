@@ -18,18 +18,12 @@
 
 <main>
 
-    <div class="container">
+    <div class="container text-center">
         <h1 class="text-center">Список категорій</h1>
         <a href="/create.php" class="btn btn-success">Додати категорію</a>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Фото</th>
-                <th scope="col">Навва</th>
-                <th scope="col">Опис</th>
-            </tr>
-            </thead>
-            <tbody>
+        <a href="/delete.php" class="btn btn-success">Видалити категорію</a>
+        <a href="/edit.php" class="btn btn-success">Редагувати категорію</a>
+        <div class="row">
             <!--оголошуєм, що тут буде ПХП код-->
             <?php
             //оголошення змінної,в якій знаходиться команда для вибірки данних з таблиці
@@ -46,17 +40,21 @@
                 $description = $row["description"];
                 //виводим всі вибрані данні з таблиці через HTML тегі
                 echo "
-                <tr>
-                    <td><img src='$image' width='50'/></td>
-                    <td>$name</td>
-                    <td>$description</td>
-                </tr>
+                <div class='col'>
+                     <div class='card' style='width: 18rem;'>
+                        <img src='$image' class='card-img-top'>
+                         <div class='card-body'>
+                            <h5 class='card-title'>$name</h5>
+                          <p class='card-text'>$description</p>
+                        </div>
+                    </div>
+                </div>
+                
                 ";
             }
             ?>
+        </div>
 
-            </tbody>
-        </table>
     </div>
 </main>
 

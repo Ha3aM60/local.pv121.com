@@ -40,12 +40,25 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Додати</button>
+            <button id="addBtn" type="submit" class="btn btn-primary">Додати</button>
         </form>
     </div>
 </main>
 
 
 </body>
+<script>
+    document.getElementById('addBtn').addEventListener('click', function() {
+        <?php
+        $data1 = $_GET['name'];
+        $data2 = $_GET['image'];
+        $data3 = $_GET['description'];
+        $sql = "INSERT INTO `tbl_categories` (`id`, `name`, `image`, `description`) VALUES (NULL, '$data1', '$data2', '$data3')";
+        if($data3 != '')
+            $dbh->exec($sql);
+        ?>
+    });
+</script>
 <script src="/js/bootstrap.bundle.min.js"></script>
+
 </html>
